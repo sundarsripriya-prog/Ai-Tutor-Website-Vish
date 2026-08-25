@@ -4,8 +4,8 @@ function Header() {
       <h1>The Impact of Artificial Intelligence on Society</h1>
 
       <p>
-        Exploring how AI affects education, healthcare,
-        business, and everyday life.
+        Exploring how AI affects Education,
+        students and teachers.
       </p>
     </section>
   );
