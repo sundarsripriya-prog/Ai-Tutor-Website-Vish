@@ -18,6 +18,7 @@ function App() {
           title="Employment"
           description="AI may automate some jobs while creating others."
       />
+       <Footer />
     </div>
 
   );
