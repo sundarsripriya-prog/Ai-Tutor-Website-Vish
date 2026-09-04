@@ -41,6 +41,7 @@ Official marketing images from each company's own website, saved in
 |---|---|---|
 | khanmigo.png | Khanmigo | https://www.khanmigo.ai/ |
 | notebooklm.png | Gemini Notebook (NotebookLM) | https://notebooklm.google/ |
+| gemini-notebook-cover.png | Gemini Notebook | https://blog.google/innovation-and-ai/products/gemini-notebook/notebooklm-gemini-notebook/ |
 | claude-education.jpg | Claude for Education | https://www.anthropic.com/education |
 | chatgpt-study.png | ChatGPT study mode | https://openai.com/index/chatgpt-study-mode/ |
 | duolingo-max.png | Duolingo Max | https://blog.duolingo.com/duolingo-max/ |

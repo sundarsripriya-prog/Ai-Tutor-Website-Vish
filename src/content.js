@@ -10,54 +10,68 @@ export const pages = [
 ];
 
 // Official product images, saved in public/images and credited in CREDITS.md.
+// "frame" is the colour shown behind an image whose shape does not match the
+// card, so the whole image is visible instead of being cropped.
 export const products = [
   {
     id: "khanmigo",
     name: "Khanmigo",
     maker: "Khan Academy",
     type: "Chatbot tutor",
+    url: "https://www.khanmigo.ai/",
     image: "/images/khanmigo.png",
-    text: "A conversation window where the student asks questions and the tutor guides them through the problem in plain language.",
+    frame: "#eee5fb",
+    text: "Launched in March 2023 on GPT-4. The student types a question and Khanmigo guides them through the problem in plain language, in a conversation window, instead of handing over the answer.",
   },
   {
     id: "notebooklm",
     name: "Gemini Notebook",
-    maker: "Google, formerly NotebookLM",
+    maker: "Google, renamed from NotebookLM in 2026",
     type: "Source-grounded study assistant",
+    url: "https://notebooklm.google/",
     image: "/images/notebooklm.png",
-    text: "The student uploads their own notes or readings, and the assistant answers only from that material.",
+    frame: "#ffffff",
+    text: "The student uploads their own notes, readings, or lecture slides, and the assistant answers only from that material. This keeps the tutor tied to what the class actually covered.",
   },
   {
     id: "claude",
     name: "Claude for Education",
     maker: "Anthropic",
     type: "Guided study mode",
+    url: "https://www.anthropic.com/education",
     image: "/images/claude-education.jpg",
-    text: "A learning mode that asks the student questions and gives hints rather than handing over the answer.",
+    frame: "#d97757",
+    text: "Part of the guardrail era that began in 2025. A learning mode that asks the student questions and gives hints rather than direct answers, the approach the PNAS study found avoids harm.",
   },
   {
     id: "chatgpt",
     name: "ChatGPT study mode",
     maker: "OpenAI",
     type: "Guided study mode",
+    url: "https://openai.com/index/chatgpt-study-mode/",
     image: "/images/chatgpt-study.png",
-    text: "A mode inside a general chatbot that works through problems step by step instead of giving the answer straight away.",
+    frame: "#5ec8f5",
+    text: "A dedicated study mode inside the general chatbot most students already use. It works through a problem step by step instead of giving the answer straight away.",
   },
   {
     id: "duolingo",
     name: "Duolingo Max",
     maker: "Duolingo",
     type: "Adaptive practice platform",
+    url: "https://blog.duolingo.com/duolingo-max/",
     image: "/images/duolingo-max.png",
-    text: "Daily language lessons that track what the learner gets right and wrong, then choose the next exercise to fit.",
+    frame: "#000000",
+    text: "Duolingo launched in 2012 and brought machine learning to a mass-market learning app. Lessons track what the learner gets right and wrong, then choose the next exercise to fit. Max added generative AI features in 2023.",
   },
   {
     id: "turbo",
     name: "Turbo AI",
     maker: "TurboLearn",
     type: "Wrapper study app",
+    url: "https://www.turbolearn.ai/",
     image: "/images/turbolearn.png",
-    text: "A study interface built on top of another company's AI model and sold as a monthly subscription.",
+    frame: "#0e0a1f",
+    text: "A study interface built on top of another company's AI model. Wrapper apps like this charge 9.99 to 19.99 dollars a month for a thin layer over a model they did not build.",
   },
 ];
 
@@ -69,8 +83,8 @@ export const home = {
     emphasis: "every student",
     lede:
       "AI tutors are programs that teach, explain, and give feedback the way a human tutor would. This site explains where they came from, what they change for students, schools, and the wider world, and the one design decision that decides whether they help or harm.",
-    image: "/images/khanmigo.png",
-    imageAlt: "Khanmigo by Khan Academy, an AI-powered tool for education",
+    image: "/images/gemini-notebook-cover.png",
+    imageAlt: "Gemini Notebook, Google's source-grounded study assistant",
   },
 
   whatItIs: {
@@ -131,7 +145,7 @@ export const home = {
   today: {
     heading: "The tools students use today",
     intro:
-      "Several kinds of AI tutor are in wide use. They differ in where the knowledge comes from and in whether the tool gives answers or guides the student toward them.",
+      "Four kinds of AI tutor are in wide use: chatbot tutors, source-grounded study assistants, adaptive practice platforms, and wrapper study apps. They differ in where the knowledge comes from and in whether the tool gives answers or guides the student toward them. The products below are the best-known example of each kind.",
     closing:
       "What these tools share is access. Help that once depended on a paid tutor, a free teacher, or a willing friend is now available at any hour. The rest of this site asks what that access costs and how to keep it from doing harm.",
   },

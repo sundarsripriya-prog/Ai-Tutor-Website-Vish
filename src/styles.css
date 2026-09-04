@@ -216,15 +216,27 @@ img {
   margin-top: 32px;
 }
 
-/* Every image on the site gets the card radius and a hairline frame. */
+/* Every image on the site gets the card radius and a hairline frame.
+   Hero images keep their own proportions so nothing is cropped. */
 .hero-image {
   width: 100%;
-  aspect-ratio: 2 / 1;
-  object-fit: cover;
+  height: auto;
   border-radius: var(--radius-card);
   border: 1px solid var(--ink);
   margin-top: 56px;
   background: var(--paper);
+}
+
+/* Text links are always underlined so they are easy to spot. */
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+
+a:hover {
+  color: var(--forest-mid);
 }
 
 /* --------------------------------------------------------- Buttons */
@@ -334,11 +346,17 @@ img {
   overflow: hidden;
 }
 
+/* The frame is a fixed 2:1 box. The image sits inside it at its own
+   proportions, so tall images show whole instead of being cropped. */
+.product-frame {
+  aspect-ratio: 2 / 1;
+  border-bottom: 1px solid var(--ink);
+}
+
 .product-image {
   width: 100%;
-  aspect-ratio: 2 / 1;
-  object-fit: cover;
-  border-bottom: 1px solid var(--ink);
+  height: 100%;
+  object-fit: contain;
 }
 
 .product-body {

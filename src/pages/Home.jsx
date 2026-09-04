@@ -91,10 +91,16 @@ function Home({ onNavigate }) {
             {products.map(function (product) {
               return (
                 <li className="product" key={product.id}>
-                  <img className="product-image" src={product.image} alt={product.name} />
+                  <div className="product-frame" style={{ background: product.frame }}>
+                    <img className="product-image" src={product.image} alt={product.name} />
+                  </div>
                   <div className="product-body">
                     <span className="tag tag-sage">{product.type}</span>
-                    <h3>{product.name}</h3>
+                    <h3>
+                      <a href={product.url} target="_blank" rel="noreferrer">
+                        {product.name}
+                      </a>
+                    </h3>
                     <span className="product-maker">{product.maker}</span>
                     <p>{product.text}</p>
                   </div>
