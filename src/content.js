@@ -279,9 +279,10 @@ export const impacts = {
       id: "economy",
       heading: "Economy",
       paragraphs: [
-        "The clearest economic effect is price. One-on-one tutoring that used to cost 40 to 100 dollars per hour now costs nothing or about 20 dollars per month. The global tutoring industry is estimated at around 100 billion dollars, so a price drop that large reaches families who could never have bought tutoring before.",
-        "The same technology has displaced workers and companies. Chegg, a homework-help business, lost roughly half its market value in a single day in May 2023 after admitting that ChatGPT was hurting its growth. Duolingo cut about 10 percent of its contractors in early 2024 as AI took over translation work.",
-        "A new divide is forming. Families who can pay get frontier tutors, and everyone else gets ad-supported or lower-quality tools. Wrapper apps charge 9.99 to 19.99 dollars a month for a thin layer over another company's model, so the price does not always reflect the quality.",
+        "The clearest economic effect is price. One-on-one tutoring that used to cost 40 to 100 dollars per hour now costs nothing or about 20 dollars per month. That is not a discount. It is a change in who can take part. The global tutoring industry is estimated at around 100 billion dollars, and almost all of that money came from families who could afford an hourly rate. An AI tutor at 20 dollars a month, or free, reaches the far larger group of families who could never have bought tutoring at all.",
+        "The gains are not only theoretical. The Harvard trial with 194 students found that a purpose-built AI tutor produced more than twice the learning in less time. The World Bank trial in Nigeria ran for six weeks and found gains equal to 1.5 to 2 years of ordinary schooling for the cost. When a cheap intervention produces results like that, the economics of education shift: a school that could not afford one extra teacher can afford an AI tutor for every student.",
+        "The same technology has displaced workers and companies. Chegg, a homework-help business built on answering student questions, lost roughly half its market value in a single day in May 2023 after admitting that ChatGPT was hurting its growth. Duolingo cut about 10 percent of its contractors in early 2024 as AI took over translation work. In both cases the people replaced were the ones who did the teaching or content work by hand, which is exactly the labour an AI tutor automates.",
+        "A new divide is forming underneath the headline price drop. Families who can pay get frontier tutors built on the most capable models. Everyone else gets ad-supported or lower-quality tools. Wrapper apps charge 9.99 to 19.99 dollars a month for a thin layer over another company's model, so a family paying that price may be getting less than a family paying nothing for a well-built free tool. The price no longer signals the quality, and most families have no way to tell the difference.",
       ],
       gains: [
         "Tutoring that cost 40 to 100 dollars per hour now costs nothing or about 20 dollars per month.",
@@ -298,8 +299,10 @@ export const impacts = {
       id: "culture",
       heading: "Culture",
       paragraphs: [
-        "AI tutors widen access to languages and traditions that mainstream education often ignores. Duolingo offers Irish, Welsh, Hawaiian, and Navajo, all languages with small or endangered speaker communities. Apps such as Tarteel give feedback on Quran recitation, bringing religious learning to people without a nearby teacher. Daily practice habits and the identity of a self-directed learner spread with these tools.",
-        "The same tools can flatten culture. The models behind them are trained mostly on English-language Western data, so they tend to standardise how history, literature, and religion are framed, regardless of where the student lives. There is also a shift in habit: students learn to ask before they think. In cultures built around high-stakes exams, a tutor that is available at every hour erodes rest, weekends, and holidays.",
+        "AI tutors widen access to languages and traditions that mainstream education often ignores. Duolingo offers Irish, Welsh, Hawaiian, and Navajo, all languages with small or endangered speaker communities. For a language like that, the number of people who want to learn it can be far larger than the number of teachers able to teach it, and an app removes that limit. Apps such as Tarteel give feedback on Quran recitation, bringing religious learning to people who have no teacher nearby. In each case the tool reaches a learner that the existing system could not.",
+        "The tools also change how people see themselves. Daily practice habits spread with them, and so does the identity of a self-directed learner, someone who studies because they chose to rather than because a class required it. That identity used to be rare and expensive to build. An app that rewards a daily streak makes it ordinary.",
+        "The same tools can flatten culture. The models behind them are trained mostly on English-language Western data, so they tend to standardise how history, literature, and religion are framed, regardless of where the student lives. A student in one country and a student in another may receive the same framing of the same event, and neither can see what was left out.",
+        "There is also a shift in habit. When help is always one message away, students learn to ask before they think, and the pause in which a person works something out for themselves becomes shorter. In cultures built around high-stakes exams, a tutor that is available at every hour erodes rest, weekends, and holidays, because there is no longer a natural point at which studying has to stop.",
       ],
       gains: [
         "Language access for small and endangered languages such as Irish, Welsh, Hawaiian, and Navajo.",
@@ -316,9 +319,11 @@ export const impacts = {
       id: "environment",
       heading: "Environment",
       paragraphs: [
-        "A single tutoring question uses very little energy. The environmental cost comes from billions of questions asked at scale, and from building and cooling the hardware that answers them.",
-        "Data centres used about 4.4 percent of United States electricity in 2023, and the Department of Energy and Berkeley Lab project that share will reach roughly 7 to 12 percent by 2028. Cooling those centres takes water: one study by Li and colleagues estimated that training GPT-3 alone consumed about 700,000 litres of fresh water. The hardware depends on critical minerals, according to the International Energy Agency, and the United Nations reports that global electronic waste reached a record 62 million tonnes in 2022.",
-        "Some argue that AI tutoring helps the environment by reducing travel to tutoring centres and cutting printed materials. Those benefits are indirect and have not been measured, so this site does not count them as proven.",
+        "A single tutoring question uses very little energy. The environmental cost comes from billions of questions asked at scale, and from building and cooling the hardware that answers them. Every answer an AI tutor gives is produced in a data centre, so as tutoring moves onto these tools, the demand on that infrastructure grows with it.",
+        "Electricity is the first cost. Data centres used about 4.4 percent of United States electricity in 2023, and the Department of Energy and Berkeley Lab project that share will reach roughly 7 to 12 percent by 2028. That is a large share of a national grid moving to one kind of building within five years.",
+        "Water is the second. The servers have to be cooled, and cooling takes fresh water. One study by Li and colleagues estimated that training GPT-3 alone consumed about 700,000 litres of fresh water, and that figure covers only the training of one model, not the years of questions answered afterwards.",
+        "Materials are the third. The hardware depends on critical minerals, according to the International Energy Agency, which must be mined and refined before a chip exists. At the other end of the cycle, the United Nations reports that global electronic waste reached a record 62 million tonnes in 2022, and every device and server eventually joins that pile.",
+        "Some argue that AI tutoring helps the environment by reducing travel to tutoring centres and cutting printed materials. Those benefits are plausible, but they are indirect and have not been measured, so this site does not count them as proven.",
       ],
       gains: [
         "Less travel to tutoring centres and fewer printed materials, an indirect benefit that has not yet been measured.",
@@ -377,7 +382,9 @@ export const recommendation = {
     chartNote: "Every bar is measured against students who never had AI. Both panels use the same scale.",
     after: [
       "Students with the standard chatbot did 48 percent better on practice problems, then scored 17 percent worse than students who never had AI once the tool was taken away for the exam. Students with the guardrailed tutor did 127 percent better on practice and were statistically indistinguishable from the control group on the exam. The safeguards prevented harm but did not produce a lasting advantage.",
-      "The students did not notice. Their self-assessments of how much they had learned were overly optimistic, so the students who lost the most ability were also confident that they had improved.",
+      "The two panels of the chart tell the whole story. On the left, both AI groups look like a success, and the standard chatbot group looks like a clear win. On the right, the same standard chatbot group has fallen below students who had no help at all. Every signal a teacher normally watches, such as practice scores and completed homework, pointed in the wrong direction. The harm only became visible when the tool was removed.",
+      "The reason is what the students did with the tool. A standard chatbot will give the answer when asked, and students asked. They finished more problems and finished them correctly, but the work of reasoning through each one was done by the software. The guardrailed tutor gave hints and refused to give answers, so students still had to do that work themselves, which is why their unassisted performance held.",
+      "The students did not notice. Their self-assessments of how much they had learned were overly optimistic, so the students who lost the most ability were also confident that they had improved. This is the part of the finding that matters most for policy: a student cannot be expected to fix a problem they cannot feel.",
     ],
   },
 
@@ -387,29 +394,29 @@ export const recommendation = {
       "Dependency is a design flaw, not a property of AI tutoring. The same study proved the fix: adding guardrails erased the harm. The industry is now shipping study modes as defaults. And every cognitive technology since writing has triggered the same fear. Socrates worried that writing would weaken memory, and teachers worried that calculators would end arithmetic, yet the predicted collapse never came.",
     responseHeading: "Why the objection does not hold",
     response: [
-      "The guarded tutor only achieved no harm on the unassisted exam. It did not produce gains. Safe is not the same as better.",
-      "The tools students actually reach for at midnight are the unguarded kind, and the safe mode is often one toggle away from the answer mode.",
-      "Calculators arrive after arithmetic fluency is built. Answer-giving AI arrives during skill formation, when the student has not yet learned the thing being skipped.",
-      "The study shows students cannot feel the gap. Awareness campaigns depend on people noticing a problem, and this is a problem they do not notice.",
+      "The objection is right that the fix exists, and this site does not argue for banning AI tutors. But the guarded tutor only achieved no harm on the unassisted exam. It did not produce gains. Safe is not the same as better, and a district that adopts the safe version should expect protection, not a leap in results.",
+      "The objection describes what should be built and says nothing about what gets used. The tools students actually reach for at midnight are the unguarded kind, and even in products that have a study mode, the safe mode is often one toggle away from the answer mode. A safeguard the student can switch off is not a safeguard at the moment the student is most tempted to switch it off.",
+      "The calculator comparison does not hold. Calculators arrive after arithmetic fluency is built, so they remove work the student has already learned to do. Answer-giving AI arrives during skill formation, when the student has not yet learned the thing being skipped. Removing work before it has been learned is not the same as removing it afterwards.",
+      "The study shows students cannot feel the gap. Awareness campaigns and responsible-use guidance depend on people noticing a problem in themselves, and this is a problem they do not notice. That rules out any solution that relies on students choosing the harder path on their own.",
     ],
   },
 
   plan: {
     heading: "What schools should do",
     intro:
-      "These three steps follow directly from what worked in the PNAS study. Each one moves a decision away from the individual student or teacher and onto the district, where it can be enforced.",
+      "These three steps follow directly from what worked in the PNAS study. Each one moves a decision away from the individual student or teacher and onto the district, where it can be enforced. The first two prevent the harm. The third catches it when prevention fails.",
     steps: [
       {
         title: "Lock guided study mode at the district level",
-        text: "School accounts should have guided study mode set by a district administrator, so answer mode is not one student toggle away.",
+        text: "School accounts should have guided study mode set by a district administrator, so answer mode is not one student toggle away. Study modes already exist in most products, but today the student controls the switch. Moving that control to the district turns a feature a student can ignore into a rule that applies to every account, including the one being used late at night on a hard problem.",
       },
       {
         title: "Centralise hint-writing",
-        text: "Teacher-designed, unit-specific hints are what made the safe tutor work in the PNAS study. Districts should write and maintain those hints centrally rather than asking every teacher to carry that load alone.",
+        text: "Teacher-designed, unit-specific hints are what made the safe tutor work in the PNAS study. The tutor was not safe because it was vague. It was safe because teachers had written hints for the exact mistakes students make in that unit. That is real work, and it should not fall on every individual teacher. Districts should write and maintain those hints centrally and share them, the same way they already share pacing guides and curriculum materials.",
       },
       {
         title: "Run regular AI-free checkpoints",
-        text: "Short, low-stakes quizzes or spoken explanations done without AI make the gap between assisted and unassisted ability visible before a test that counts.",
+        text: "Short, low-stakes quizzes or spoken explanations done without AI make the gap between assisted and unassisted ability visible before a test that counts. Guardrails can fail, and students still have unguarded tools at home, so prevention alone is not enough. The PNAS study showed that students cannot feel the gap themselves, which means someone has to measure it. A two-minute explanation given out loud is enough to show whether the student can do the work without the tool.",
       },
     ],
   },
