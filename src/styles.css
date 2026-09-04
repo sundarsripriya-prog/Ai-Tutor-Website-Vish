@@ -56,12 +56,12 @@ h1 {
 }
 
 h2 {
-  font-size: 40px;
-  letter-spacing: -0.02em;
+  font-size: 44px;
+  letter-spacing: -0.025em;
 }
 
 h3 {
-  font-size: 22px;
+  font-size: 24px;
   letter-spacing: -0.01em;
 }
 
@@ -131,13 +131,31 @@ img {
   text-transform: uppercase;
 }
 
+/* Section headings carry a short chartreuse rule underneath, so every
+   section opens the same way and the heading stands apart from the text. */
 .section-heading {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  position: relative;
+}
+
+.section-heading::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 56px;
+  border-bottom: 4px solid var(--chartreuse);
+}
+
+.band-forest .section-heading::after {
+  border-color: var(--chartreuse);
 }
 
 .intro {
-  font-size: 18px;
-  margin-bottom: 32px;
+  font-size: 19px;
+  line-height: 1.55;
+  margin-bottom: 36px;
 }
 
 .closing-note {
@@ -203,10 +221,19 @@ img {
   margin: 0 auto;
 }
 
+/* The italic words in the headline sit on a chartreuse underline. */
+.hero h1 em {
+  text-decoration: underline;
+  text-decoration-color: var(--chartreuse);
+  text-decoration-thickness: 6px;
+  text-underline-offset: 8px;
+}
+
 .hero .lede {
   max-width: 60ch;
-  margin: 24px auto 0;
-  font-size: 18px;
+  margin: 28px auto 0;
+  font-size: 19px;
+  line-height: 1.55;
 }
 
 .hero-actions {
