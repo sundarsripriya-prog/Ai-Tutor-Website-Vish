@@ -25,22 +25,22 @@ npm run build
 npm run preview
 ```
 
-## How the project is organised
+## How the project is organized
 
 | Path | What is in it |
 |---|---|
-| `src/content.js` | Every piece of text and data on the site, with a source link on each row |
-| `src/pages/` | The three pages: Home, Impacts, Recommendation |
+| `src/content.js` | Every piece of text and data on the site |
+| `src/pages/` | The four pages: Home, Impacts, Recommendation, References |
 | `src/components/` | Navigation and the shared pieces the pages reuse |
 | `src/styles.css` | The design tokens and all styles |
-| `PRD_AI_Tutors_Website.md` | The research document every fact on the site comes from |
+| `research.md` | The research every fact on the site comes from |
+| `design-system.md` | The colors, type, spacing, and component rules the site follows |
+| `public/images/` | Official product images used on the site, credited in CREDITS.md |
+| `PRD_AI_Tutors_Website.md` | The original project brief |
 | `CREDITS.md` | Every piece of code here that I did not write from scratch |
 | `CLAUDE.md` | The rules an AI assistant must follow when editing this repository |
 
 ## About the numbers
 
-Every statistic on this site was checked against the original paper, government
-report, or company disclosure, and each one links to that source. Several were
-corrected during fact-checking, so they are not rounded or restated anywhere in
-the code. Three of the strongest sources are working papers rather than
-peer-reviewed articles, which the site states on the page rather than hiding.
+Every statistic on this site comes from `research.md` and is listed with its
+source on the References page. Numbers are never rounded or restated in the code.
