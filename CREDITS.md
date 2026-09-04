@@ -46,3 +46,4 @@ Official marketing images from each company's own website, saved in
 | chatgpt-study.png | ChatGPT study mode | https://openai.com/index/chatgpt-study-mode/ |
 | duolingo-max.png | Duolingo Max | https://blog.duolingo.com/duolingo-max/ |
 | turbolearn.png | Turbo AI | https://www.turbolearn.ai/ |
+| robot.png | Home hero illustration, supplied by the project author | Stock render, saved locally |

@@ -83,8 +83,8 @@ export const home = {
     emphasis: "every student",
     lede:
       "AI tutors are programs that teach, explain, and give feedback the way a human tutor would. This site explains where they came from, what they change for students, schools, and the wider world, and the one design decision that decides whether they help or harm.",
-    image: "/images/gemini-notebook-cover.png",
-    imageAlt: "Gemini Notebook, Google's source-grounded study assistant",
+    image: "/images/robot.png",
+    imageAlt: "A robot thinking in front of a board covered in maths and chemistry formulas",
   },
 
   whatItIs: {
