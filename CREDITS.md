@@ -32,14 +32,16 @@ Rule of thumb for what needs marking: if I could not rewrite it from memory, it
 gets marked. Copying four lines from a documentation page counts. Reading a
 documentation page and then writing my own version does not.
 
-## Photographs
+## Product images
 
-Hero photographs are loaded from Unsplash under the Unsplash License. They are
-referenced by URL in `src/content.js`, one per page.
+Official marketing images from each company's own website, saved in
+`public/images` and used under fair use for a school research project.
 
-| Page | Unsplash photo id |
-|---|---|
-| Home | 1523240795612-9a054b0db644 |
-| Impacts | 1558494949-ef010cbdcc31 |
-| Recommendation | 1434030216411-0b793f4b4173 |
-| References | 1481627834876-b7833e8f5570 |
+| File | Product | Source page |
+|---|---|---|
+| khanmigo.png | Khanmigo | https://www.khanmigo.ai/ |
+| notebooklm.png | Gemini Notebook (NotebookLM) | https://notebooklm.google/ |
+| claude-education.jpg | Claude for Education | https://www.anthropic.com/education |
+| chatgpt-study.png | ChatGPT study mode | https://openai.com/index/chatgpt-study-mode/ |
+| duolingo-max.png | Duolingo Max | https://blog.duolingo.com/duolingo-max/ |
+| turbolearn.png | Turbo AI | https://www.turbolearn.ai/ |

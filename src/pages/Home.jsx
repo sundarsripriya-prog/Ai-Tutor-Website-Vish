@@ -1,8 +1,8 @@
-import { home } from "../content.js";
+import { home, products } from "../content.js";
 import Hero from "../components/Hero.jsx";
 
-// Home: what an AI tutor is, how it is classified, its history, and how
-// people use it today.
+// Home: what an AI tutor is, how it is classified, its history, and the
+// tools students use today.
 function Home({ onNavigate }) {
   return (
     <main>
@@ -23,20 +23,6 @@ function Home({ onNavigate }) {
           {home.whatItIs.paragraphs.map(function (text) {
             return <p key={text}>{text}</p>;
           })}
-
-          <div className="definitions">
-            {home.whatItIs.forms.map(function (form) {
-              return (
-                <div className="definition" key={form.name}>
-                  <div>
-                    <span className="definition-name">{form.name}</span>
-                    <span className="definition-example">{form.example}</span>
-                  </div>
-                  <p>{form.text}</p>
-                </div>
-              );
-            })}
-          </div>
         </div>
       </section>
 
@@ -94,14 +80,30 @@ function Home({ onNavigate }) {
         </div>
       </section>
 
-      {/* Applications today */}
+      {/* Applications today: one card per product with its official image */}
       <section className="section band-paper">
         <div className="container">
           <span className="eyebrow">Applications</span>
           <h2 className="section-heading">{home.today.heading}</h2>
-          {home.today.paragraphs.map(function (text) {
-            return <p key={text}>{text}</p>;
-          })}
+          <p className="intro">{home.today.intro}</p>
+
+          <ul className="product-grid">
+            {products.map(function (product) {
+              return (
+                <li className="product" key={product.id}>
+                  <img className="product-image" src={product.image} alt={product.name} />
+                  <div className="product-body">
+                    <span className="tag tag-sage">{product.type}</span>
+                    <h3>{product.name}</h3>
+                    <span className="product-maker">{product.maker}</span>
+                    <p>{product.text}</p>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+
+          <p className="closing-note">{home.today.closing}</p>
         </div>
       </section>
     </main>

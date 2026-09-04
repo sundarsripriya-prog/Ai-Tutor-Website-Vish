@@ -1,5 +1,5 @@
 // The opening block of every page: a headline where the last words are
-// italic, a short paragraph, optional buttons, and one photograph.
+// italic, a short paragraph, optional buttons, and an optional image.
 function Hero({ hero, children }) {
   return (
     <section className="hero">
@@ -11,7 +11,9 @@ function Hero({ hero, children }) {
 
         {children && <div className="hero-actions">{children}</div>}
 
-        <img className="hero-image" src={hero.image} alt={hero.imageAlt} />
+        {hero.image && (
+          <img className="hero-image" src={hero.image} alt={hero.imageAlt} />
+        )}
       </div>
     </section>
   );

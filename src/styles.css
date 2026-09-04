@@ -1,5 +1,6 @@
 /* One stylesheet for the whole site. Design tokens come first, then
-   base styles, then one block per component. No animations anywhere. */
+   base styles, then one block per component. No animations anywhere.
+   The site is built for desktop screens. */
 
 :root {
   --sage: #eef2e3;
@@ -139,6 +140,11 @@ img {
   margin-bottom: 32px;
 }
 
+.closing-note {
+  margin-top: 40px;
+  font-size: 18px;
+}
+
 /* ------------------------------------------------------------- Nav */
 
 .nav {
@@ -210,13 +216,15 @@ img {
   margin-top: 32px;
 }
 
+/* Every image on the site gets the card radius and a hairline frame. */
 .hero-image {
   width: 100%;
-  aspect-ratio: 21 / 9;
+  aspect-ratio: 2 / 1;
   object-fit: cover;
   border-radius: var(--radius-card);
+  border: 1px solid var(--ink);
   margin-top: 56px;
-  background: var(--forest);
+  background: var(--paper);
 }
 
 /* --------------------------------------------------------- Buttons */
@@ -272,32 +280,6 @@ img {
   margin-bottom: 12px;
 }
 
-/* A definition list: name on the left, explanation on the right. */
-.definitions {
-  display: grid;
-  gap: 24px;
-  margin-top: 40px;
-}
-
-.definition {
-  display: grid;
-  grid-template-columns: 240px 1fr;
-  gap: 24px;
-  padding-top: 24px;
-  border-top: 1px solid var(--ink);
-}
-
-.definition-name {
-  font-weight: 500;
-}
-
-.definition-example {
-  display: block;
-  margin-top: 4px;
-  font-size: 14px;
-  color: var(--slate);
-}
-
 /* --------------------------------------------------------- Timeline */
 
 .timeline {
@@ -334,6 +316,79 @@ img {
   color: var(--slate);
   text-align: right;
   flex-shrink: 0;
+}
+
+/* --------------------------------------------------------- Products */
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.product {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background: var(--sage);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
+.product-image {
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  border-bottom: 1px solid var(--ink);
+}
+
+.product-body {
+  padding: 24px var(--pad-card) var(--pad-card);
+}
+
+.product-body h3 {
+  margin-top: 12px;
+  margin-bottom: 2px;
+}
+
+.product-maker {
+  display: block;
+  font-size: 14px;
+  color: var(--slate);
+  margin-bottom: 12px;
+}
+
+.tag-sage {
+  background: var(--paper);
+}
+
+/* ---------------------------------------------------------- Figures */
+
+.figure-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.figure-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.figure-value {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 48px;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.figure p {
+  font-size: 15px;
 }
 
 /* ------------------------------------------------- Gains and costs */
@@ -380,42 +435,74 @@ img {
   max-width: 28ch;
 }
 
-/* ------------------------------------------------- Forest stat band */
+/* ------------------------------------------------------------ Chart */
 
-.stat-grid {
+.chart {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr;
   gap: 16px;
 }
 
-.stat {
+.chart-panel {
+  border: 1px solid rgba(252, 252, 252, 0.2);
   border-radius: var(--radius-card);
   padding: var(--pad-card);
-  border: 1px solid rgba(252, 252, 252, 0.2);
 }
 
-.stat-label {
-  display: block;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--chartreuse);
-  margin-bottom: 12px;
-}
-
-.stat-value {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 48px;
-  letter-spacing: -0.02em;
-  line-height: 1;
-  margin-bottom: 16px;
-}
-
-.stat p {
+.chart-panel h3 {
+  font-family: var(--font-body);
   font-size: 15px;
-  color: rgba(252, 252, 252, 0.85);
+  font-weight: 500;
+  color: var(--chartreuse);
+  margin-bottom: 24px;
+}
+
+.chart-row {
+  display: grid;
+  grid-template-columns: 80px 1fr 150px;
+  align-items: center;
+  gap: 16px;
+}
+
+.chart-row + .chart-row {
+  margin-top: 20px;
+}
+
+.chart-label {
+  font-size: 15px;
+}
+
+.chart-track {
+  height: 28px;
+  background: rgba(252, 252, 252, 0.08);
+  border-radius: var(--radius-btn);
+}
+
+.bar {
+  height: 100%;
+  min-width: 3px;
+  border-radius: var(--radius-btn);
+}
+
+.bar-positive {
+  background: var(--chartreuse);
+}
+
+.bar-negative {
+  background: var(--rust);
+}
+
+.chart-value {
+  font-family: var(--font-display);
+  font-size: 22px;
+  line-height: 1;
+  text-align: right;
+}
+
+.chart-note {
+  margin-top: 16px;
+  font-size: 14px;
+  color: rgba(252, 252, 252, 0.7);
 }
 
 .stat-after {
@@ -522,7 +609,6 @@ img {
   display: flex;
   justify-content: space-between;
   gap: 24px;
-  flex-wrap: wrap;
 }
 
 .footer button {
@@ -538,73 +624,4 @@ img {
 
 .footer button:hover {
   color: var(--forest-mid);
-}
-
-/* ---------------------------------------------------------- Mobile */
-
-@media (max-width: 760px) {
-  body {
-    font-size: 16px;
-  }
-
-  h1 {
-    font-size: 42px;
-  }
-
-  h2 {
-    font-size: 32px;
-  }
-
-  .section {
-    padding: 56px 0;
-  }
-
-  .hero {
-    padding: 56px 0 40px;
-  }
-
-  .hero-image {
-    aspect-ratio: 4 / 3;
-    margin-top: 40px;
-  }
-
-  .nav-inner {
-    height: auto;
-    padding: 16px 0;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .nav-links {
-    flex-wrap: wrap;
-  }
-
-  .card-grid,
-  .pair,
-  .stat-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .definition {
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
-
-  .predecessor {
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .predecessor span:last-child {
-    text-align: left;
-  }
-
-  .callout {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .hero-actions {
-    flex-wrap: wrap;
-  }
 }

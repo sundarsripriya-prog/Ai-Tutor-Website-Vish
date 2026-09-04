@@ -1,8 +1,7 @@
 import { references } from "../content.js";
 import Hero from "../components/Hero.jsx";
 
-// References: every source, grouped by how much weight it carries, and one
-// widely quoted statistic that should not be trusted.
+// References: every source, grouped by type.
 function References() {
   return (
     <main>
@@ -31,17 +30,6 @@ function References() {
                 </ul>
               </div>
             );
-          })}
-        </div>
-      </section>
-
-      {/* The contested two sigma statistic */}
-      <section className="section band-paper">
-        <div className="container">
-          <span className="eyebrow">Contested</span>
-          <h2 className="section-heading">{references.contested.heading}</h2>
-          {references.contested.paragraphs.map(function (text) {
-            return <p key={text}>{text}</p>;
           })}
         </div>
       </section>
