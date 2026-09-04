@@ -10,7 +10,7 @@ export const pages = [
 ];
 
 // Official product images, saved in public/images and credited in CREDITS.md.
-// "frame" is the colour shown behind an image whose shape does not match the
+// "frame" is the color shown behind an image whose shape does not match the
 // card, so the whole image is visible instead of being cropped.
 export const products = [
   {
@@ -84,14 +84,14 @@ export const home = {
     lede:
       "AI tutors are programs that teach, explain, and give feedback the way a human tutor would. This site explains where they came from, what they change for students, schools, and the wider world, and the one design decision that decides whether they help or harm.",
     image: "/images/robot.png",
-    imageAlt: "A robot thinking in front of a board covered in maths and chemistry formulas",
+    imageAlt: "A robot thinking in front of a board covered in math and chemistry formulas",
   },
 
   whatItIs: {
     heading: "What counts as an AI tutor",
     paragraphs: [
       "An AI tutor is software that uses artificial intelligence to do the job a human tutor does. It answers questions, walks a student through a problem step by step, adjusts the difficulty to match the student, and gives feedback immediately instead of days later.",
-      "The main users are students in K-12 schools and colleges. Teachers use the same tools to prepare lessons, and adults learning on their own use them to practise a language or build a skill.",
+      "The main users are students in K-12 schools and colleges. Teachers use the same tools to prepare lessons, and adults learning on their own use them to practice a language or build a skill.",
     ],
   },
 
@@ -164,7 +164,7 @@ export const home = {
           {
             year: "1982",
             title: "The field gets its name",
-            text: "Sleeman and Brown name the field intelligent tutoring systems. A scattered set of experiments becomes a recognised area of research with a shared goal.",
+            text: "Sleeman and Brown name the field intelligent tutoring systems. A scattered set of experiments becomes a recognized area of research with a shared goal.",
           },
           {
             year: "1998",
@@ -193,7 +193,7 @@ export const home = {
           {
             year: "2016",
             title: "Jill Watson",
-            text: "Georgia Tech's AI teaching assistant, Jill Watson, answers student questions in an online course without students realising it is not human. It is the first sign that an AI can pass as a teaching assistant.",
+            text: "Georgia Tech's AI teaching assistant, Jill Watson, answers student questions in an online course without students realizing it is not human. It is the first sign that an AI can pass as a teaching assistant.",
           },
           {
             year: "Nov 2022",
@@ -266,7 +266,7 @@ export const impacts = {
   measured: {
     heading: "Measured in trials",
     intro:
-      "Two randomised controlled trials, the kind of study that compares a group who used the tool against a similar group who did not, have measured real learning gains from AI tutoring.",
+      "Two randomized controlled trials, the kind of study that compares a group who used the tool against a similar group who did not, have measured real learning gains from AI tutoring.",
     stats: [
       { id: "harvard", value: "2x", label: "Harvard, 194 students", text: "Researchers led by Kestin, publishing in Scientific Reports in 2025, found students learned more than twice as much with a purpose-built AI tutor, in less time." },
       { id: "nigeria-sd", value: "0.31 SD", label: "Nigeria, combined score", text: "A World Bank trial in Edo State ran six weeks of after-school English with a GPT-4 assistant. Students gained 0.23 standard deviations in English and 0.31 on a combined measure." },
@@ -301,7 +301,7 @@ export const impacts = {
       paragraphs: [
         "AI tutors widen access to languages and traditions that mainstream education often ignores. Duolingo offers Irish, Welsh, Hawaiian, and Navajo, all languages with small or endangered speaker communities. For a language like that, the number of people who want to learn it can be far larger than the number of teachers able to teach it, and an app removes that limit. Apps such as Tarteel give feedback on Quran recitation, bringing religious learning to people who have no teacher nearby. In each case the tool reaches a learner that the existing system could not.",
         "The tools also change how people see themselves. Daily practice habits spread with them, and so does the identity of a self-directed learner, someone who studies because they chose to rather than because a class required it. That identity used to be rare and expensive to build. An app that rewards a daily streak makes it ordinary.",
-        "The same tools can flatten culture. The models behind them are trained mostly on English-language Western data, so they tend to standardise how history, literature, and religion are framed, regardless of where the student lives. A student in one country and a student in another may receive the same framing of the same event, and neither can see what was left out.",
+        "The same tools can flatten culture. The models behind them are trained mostly on English-language Western data, so they tend to standardize how history, literature, and religion are framed, regardless of where the student lives. A student in one country and a student in another may receive the same framing of the same event, and neither can see what was left out.",
         "There is also a shift in habit. When help is always one message away, students learn to ask before they think, and the pause in which a person works something out for themselves becomes shorter. In cultures built around high-stakes exams, a tutor that is available at every hour erodes rest, weekends, and holidays, because there is no longer a natural point at which studying has to stop.",
       ],
       gains: [
@@ -319,18 +319,18 @@ export const impacts = {
       id: "environment",
       heading: "Environment",
       paragraphs: [
-        "A single tutoring question uses very little energy. The environmental cost comes from billions of questions asked at scale, and from building and cooling the hardware that answers them. Every answer an AI tutor gives is produced in a data centre, so as tutoring moves onto these tools, the demand on that infrastructure grows with it.",
-        "Electricity is the first cost. Data centres used about 4.4 percent of United States electricity in 2023, and the Department of Energy and Berkeley Lab project that share will reach roughly 7 to 12 percent by 2028. That is a large share of a national grid moving to one kind of building within five years.",
-        "Water is the second. The servers have to be cooled, and cooling takes fresh water. One study by Li and colleagues estimated that training GPT-3 alone consumed about 700,000 litres of fresh water, and that figure covers only the training of one model, not the years of questions answered afterwards.",
+        "A single tutoring question uses very little energy. The environmental cost comes from billions of questions asked at scale, and from building and cooling the hardware that answers them. Every answer an AI tutor gives is produced in a data center, so as tutoring moves onto these tools, the demand on that infrastructure grows with it.",
+        "Electricity is the first cost. Data centers used about 4.4 percent of United States electricity in 2023, and the Department of Energy and Berkeley Lab project that share will reach roughly 7 to 12 percent by 2028. That is a large share of a national grid moving to one kind of building within five years.",
+        "Water is the second. The servers have to be cooled, and cooling takes fresh water. One study by Li and colleagues estimated that training GPT-3 alone consumed about 700,000 liters of fresh water, and that figure covers only the training of one model, not the years of questions answered afterwards.",
         "Materials are the third. The hardware depends on critical minerals, according to the International Energy Agency, which must be mined and refined before a chip exists. At the other end of the cycle, the United Nations reports that global electronic waste reached a record 62 million tonnes in 2022, and every device and server eventually joins that pile.",
-        "Some argue that AI tutoring helps the environment by reducing travel to tutoring centres and cutting printed materials. Those benefits are plausible, but they are indirect and have not been measured, so this site does not count them as proven.",
+        "Some argue that AI tutoring helps the environment by reducing travel to tutoring centers and cutting printed materials. Those benefits are plausible, but they are indirect and have not been measured, so this site does not count them as proven.",
       ],
       gains: [
-        "Less travel to tutoring centres and fewer printed materials, an indirect benefit that has not yet been measured.",
+        "Less travel to tutoring centers and fewer printed materials, an indirect benefit that has not yet been measured.",
       ],
       costs: [
-        "Data centres used about 4.4 percent of US electricity in 2023, projected at roughly 7 to 12 percent by 2028.",
-        "Training GPT-3 was estimated to consume about 700,000 litres of fresh water.",
+        "Data centers used about 4.4 percent of US electricity in 2023, projected at roughly 7 to 12 percent by 2028.",
+        "Training GPT-3 was estimated to consume about 700,000 liters of fresh water.",
         "Global e-waste hit a record 62 million tonnes in 2022, and hardware depends on critical minerals.",
       ],
     },
@@ -358,7 +358,7 @@ export const recommendation = {
   evidence: {
     heading: "The evidence",
     intro:
-      "The strongest evidence comes from a study by Bastani and colleagues, \"Generative AI without guardrails can harm learning,\" published in PNAS in 2025. It was a field trial in real high school maths classes with nearly 1,000 students. Students were split into three groups: a control group with no AI, a group using GPT Base, which worked like a standard ChatGPT interface, and a group using GPT Tutor, which gave teacher-designed hints and never gave a direct answer.",
+      "The strongest evidence comes from a study by Bastani and colleagues, \"Generative AI without guardrails can harm learning,\" published in PNAS in 2025. It was a field trial in real high school math classes with nearly 1,000 students. Students were split into three groups: a control group with no AI, a group using GPT Base, which worked like a standard ChatGPT interface, and a group using GPT Tutor, which gave teacher-designed hints and never gave a direct answer.",
     // Each value is a percentage change against the control group.
     // The chart draws its bar widths from these numbers.
     chart: [
@@ -411,7 +411,7 @@ export const recommendation = {
         text: "School accounts should have guided study mode set by a district administrator, so answer mode is not one student toggle away. Study modes already exist in most products, but today the student controls the switch. Moving that control to the district turns a feature a student can ignore into a rule that applies to every account, including the one being used late at night on a hard problem.",
       },
       {
-        title: "Centralise hint-writing",
+        title: "Centralize hint-writing",
         text: "Teacher-designed, unit-specific hints are what made the safe tutor work in the PNAS study. The tutor was not safe because it was vague. It was safe because teachers had written hints for the exact mistakes students make in that unit. That is real work, and it should not fall on every individual teacher. Districts should write and maintain those hints centrally and share them, the same way they already share pacing guides and curriculum materials.",
       },
       {
@@ -445,7 +445,7 @@ export const references = {
       items: [
         {
           title: "Bastani et al., \"Generative AI without guardrails can harm learning\"",
-          detail: "PNAS, 2025. Field trial with nearly 1,000 high school students in maths. Source of the +48, +127, and 17 percent worse findings.",
+          detail: "PNAS, 2025. Field trial with nearly 1,000 high school students in math. Source of the +48, +127, and 17 percent worse findings.",
         },
         {
           title: "Kestin et al., Scientific Reports",
@@ -466,7 +466,7 @@ export const references = {
           detail: "The Nigeria trial in Edo State. Source of the 0.23 and 0.31 standard deviation gains.",
         },
         {
-          title: "US Department of Energy and Berkeley Lab data centre reports",
+          title: "US Department of Energy and Berkeley Lab data center reports",
           detail: "Source of the 4.4 percent electricity figure for 2023 and the 7 to 12 percent projection for 2028.",
         },
         {
