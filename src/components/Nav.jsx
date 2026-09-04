@@ -1,4 +1,4 @@
-import { pages } from "../content.js";
+import { pages } from "../content/index.js";
 
 // The top bar. It shows one button per page and highlights the current one.
 // Clicking a button tells App which page to show.

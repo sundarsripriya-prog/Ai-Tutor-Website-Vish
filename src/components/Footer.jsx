@@ -1,4 +1,4 @@
-import { footer } from "../content.js";
+import { footer } from "../content/index.js";
 
 // One line about the project and a link to the References page.
 function Footer({ onNavigate }) {

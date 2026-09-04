@@ -29,7 +29,8 @@ npm run preview
 
 | Path | What is in it |
 |---|---|
-| `src/content.js` | Every piece of text and data on the site |
+| `src/content/` | Every piece of text and data on the site, one file per page |
+| `src/App.jsx` | Remembers which page is open and shows it |
 | `src/pages/` | The four pages: Home, Impacts, Recommendation, References |
 | `src/components/` | Navigation and the shared pieces the pages reuse |
 | `src/styles.css` | The design tokens and all styles |

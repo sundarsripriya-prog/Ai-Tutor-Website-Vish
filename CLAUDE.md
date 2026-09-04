@@ -58,7 +58,7 @@ If you adapt something, mark it and say what changed.
 
 ## Structure
 
-- Content lives in `src/content.js`. Components stay presentational.
+- Content lives in `src/content/`, one file per page. Components stay presentational.
 - Page components: `Home`, `Impacts`, `Recommendation`, `References`.
 - Visual rules live in `design-system.md`. Content comes only from `research.md`.
 - Navigation is `useState` in `App`, not a router.

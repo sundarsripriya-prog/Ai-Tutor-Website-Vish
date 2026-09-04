@@ -1,6 +1,17 @@
-/* One stylesheet for the whole site. Design tokens come first, then
-   base styles, then one block per component. No animations anywhere.
-   The site is built for desktop screens. */
+/* One stylesheet for the whole site. No animations anywhere. The site is
+   built for desktop screens.
+
+   Order of this file:
+     1. Tokens: the colors, fonts, radii, and spacing used everywhere
+     2. Base: html, body, headings, paragraphs
+     3. Layout: .container, .section, .eyebrow, .section-heading
+     4. Nav, Hero, Buttons, Cards
+     5. Home page: History, Products
+     6. Impacts page: Figures, Gains and costs, Callout
+     7. Recommendation page: Chart, Objection, Steps
+     8. References page, Footer
+
+   To change a color or font for the whole site, edit the tokens below. */
 
 :root {
   --sage: #eef2e3;

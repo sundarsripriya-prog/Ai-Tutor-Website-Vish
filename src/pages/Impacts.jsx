@@ -1,4 +1,4 @@
-import { impacts } from "../content.js";
+import { impacts } from "../content/index.js";
 import Hero from "../components/Hero.jsx";
 import GainsCosts from "../components/GainsCosts.jsx";
 

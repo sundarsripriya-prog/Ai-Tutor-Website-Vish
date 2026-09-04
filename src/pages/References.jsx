@@ -1,4 +1,4 @@
-import { references } from "../content.js";
+import { references } from "../content/index.js";
 import Hero from "../components/Hero.jsx";
 
 // References: every source, grouped by type.

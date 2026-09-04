@@ -1,23 +1,6 @@
-import { recommendation } from "../content.js";
+import { recommendation } from "../content/index.js";
 import Hero from "../components/Hero.jsx";
-
-// The chart shows each group's result as a percentage of the control group.
-// The widest bar in the data (+127) fills the full track, and every other
-// bar is scaled against it so both panels share one scale.
-const largestValue = 127;
-
-function barWidth(value) {
-  const size = Math.abs(value);
-  const percent = (size / largestValue) * 100;
-  return percent + "%";
-}
-
-function barClass(value) {
-  if (value < 0) {
-    return "bar bar-negative";
-  }
-  return "bar bar-positive";
-}
+import Chart from "../components/Chart.jsx";
 
 // Recommendation: the ethical concern, the evidence behind it, the
 // strongest objection, and three steps schools should take.
@@ -33,26 +16,7 @@ function Recommendation({ onNavigate }) {
           <h2 className="section-heading">{recommendation.evidence.heading}</h2>
           <p className="intro">{recommendation.evidence.intro}</p>
 
-          <div className="chart">
-            {recommendation.evidence.chart.map(function (panel) {
-              return (
-                <div className="chart-panel" key={panel.id}>
-                  <h3>{panel.title}</h3>
-                  {panel.rows.map(function (row) {
-                    return (
-                      <div className="chart-row" key={row.id}>
-                        <span className="chart-label">{row.label}</span>
-                        <div className="chart-track">
-                          <div className={barClass(row.value)} style={{ width: barWidth(row.value) }} />
-                        </div>
-                        <span className="chart-value">{row.display}</span>
-                      </div>
-                    );
-                  })}
-                </div>
-              );
-            })}
-          </div>
+          <Chart />
           <p className="chart-note">{recommendation.evidence.chartNote}</p>
 
           <div className="stat-after">
