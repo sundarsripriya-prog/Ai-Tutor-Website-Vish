@@ -53,25 +53,54 @@ function Home({ onNavigate }) {
           <h2 className="section-heading">{home.history.heading}</h2>
           <p className="intro">{home.history.intro}</p>
 
-          <ol className="timeline">
-            {home.history.timeline.map(function (event) {
-              return (
-                <li key={event.year + event.text}>
-                  <span className="timeline-year">{event.year}</span>
-                  <p>{event.text}</p>
-                </li>
-              );
-            })}
-          </ol>
+          {/* Three eras. Each has a summary on the left and its events on the right. */}
+          {home.history.eras.map(function (era) {
+            return (
+              <div className="era" key={era.id}>
+                <div className="era-summary">
+                  <span className="era-span">{era.span}</span>
+                  <h3>{era.name}</h3>
+                  <p>{era.summary}</p>
+                </div>
 
+                <ol className="timeline">
+                  {era.events.map(function (event) {
+                    return (
+                      <li className="event" key={event.year + event.title}>
+                        <span className="timeline-year">{event.year}</span>
+                        <div>
+                          <h4>{event.title}</h4>
+                          <p>{event.text}</p>
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ol>
+              </div>
+            );
+          })}
+
+          {/* The whole history compressed into one chain */}
+          <div className="arc">
+            <h3>{home.history.arcHeading}</h3>
+            <ol className="arc-chain">
+              {home.history.arc.map(function (step) {
+                return <li key={step}>{step}</li>;
+              })}
+            </ol>
+          </div>
+
+          {/* The four older technologies that were combined */}
           <div className="predecessors">
             <h3>{home.history.predecessorsHeading}</h3>
-            <ul>
+            <p className="intro">{home.history.predecessorsIntro}</p>
+            <ul className="predecessor-grid">
               {home.history.predecessors.map(function (item) {
                 return (
-                  <li className="predecessor" key={item.name}>
-                    <span>{item.name}</span>
-                    <span>{item.role}</span>
+                  <li className="card predecessor" key={item.name}>
+                    <span className="tag tag-sage">{item.role}</span>
+                    <h4>{item.name}</h4>
+                    <p>{item.text}</p>
                   </li>
                 );
               })}

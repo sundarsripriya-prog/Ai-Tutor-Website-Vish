@@ -292,20 +292,111 @@ a:hover {
   margin-bottom: 12px;
 }
 
-/* --------------------------------------------------------- Timeline */
+/* --------------------------------------------------------- History */
+
+h4 {
+  margin: 0 0 6px;
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* One era: summary column on the left, events on the right. */
+.era {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 48px;
+  padding: 48px 0;
+  border-top: 1px solid var(--ink);
+}
+
+.era-span {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.era-summary h3 {
+  font-size: 30px;
+  margin-bottom: 16px;
+}
+
+.era-summary p {
+  font-size: 16px;
+}
 
 .timeline {
   border-left: 1px solid var(--forest);
-  padding-left: 32px;
   display: grid;
-  gap: 24px;
+  gap: 28px;
+}
+
+.event {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 16px;
+  padding-left: 24px;
 }
 
 .timeline-year {
-  display: block;
   font-family: var(--font-display);
   font-size: 22px;
-  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.event p {
+  font-size: 16px;
+}
+
+/* The chain of six steps, read left to right. */
+.arc {
+  margin-top: 48px;
+  padding: var(--pad-card);
+  background: var(--paper);
+  border-radius: var(--radius-card);
+}
+
+.arc h3 {
+  margin-bottom: 20px;
+}
+
+.arc-chain {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.arc-chain li {
+  padding: 8px 14px;
+  border: 1px solid var(--forest);
+  border-radius: var(--radius-pill);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.arc-chain li:last-child {
+  background: var(--chartreuse);
+  border-color: var(--chartreuse);
+}
+
+/* A short hairline between the steps so the order reads as a sequence. */
+.arc-chain li + li {
+  position: relative;
+  margin-left: 20px;
+}
+
+.arc-chain li + li::before {
+  content: "";
+  position: absolute;
+  left: -32px;
+  top: 50%;
+  width: 20px;
+  border-top: 1px solid var(--forest);
 }
 
 .predecessors {
@@ -313,21 +404,25 @@ a:hover {
 }
 
 .predecessors h3 {
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 
-.predecessor {
-  display: flex;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 16px 0;
-  border-top: 1px solid var(--ink);
+.predecessor-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
 }
 
-.predecessor span:last-child {
-  color: var(--slate);
-  text-align: right;
-  flex-shrink: 0;
+.predecessor h4 {
+  margin-top: 14px;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+
+.predecessor p {
+  font-size: 16px;
 }
 
 /* --------------------------------------------------------- Products */

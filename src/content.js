@@ -118,27 +118,127 @@ export const home = {
   history: {
     heading: "A century of teaching machines",
     intro:
-      "The idea of a machine that teaches is almost a hundred years old. Each generation solved one problem and handed the next one on. Fixed content gave way to systems that model the student, and those gave way to systems that can hold a real conversation.",
-    timeline: [
-      { year: "1920s", text: "Sidney Pressey builds a mechanical teaching machine." },
-      { year: "1950s", text: "B.F. Skinner promotes teaching machines and programmed instruction, a method that breaks lessons into small steps with immediate feedback." },
-      { year: "1960", text: "PLATO, an early computer-based education system, launches at the University of Illinois." },
-      { year: "1966", text: "ELIZA, the first chatbot, shows that a program can hold a text conversation." },
-      { year: "1970", text: "Jaime Carbonell builds SCHOLAR, usually called the first intelligent tutoring system." },
-      { year: "1982", text: "Sleeman and Brown give the field its name: intelligent tutoring systems." },
-      { year: "1998", text: "Carnegie Learning brings Cognitive Tutor into real classrooms." },
-      { year: "2012", text: "Duolingo launches, bringing machine learning to a mass-market learning app." },
-      { year: "2016", text: "Georgia Tech's AI teaching assistant, Jill Watson, answers student questions online without students realising it is not human." },
-      { year: "Nov 2022", text: "ChatGPT is released. Students begin using general chatbots as tutors." },
-      { year: "2023", text: "Khanmigo launches in March on GPT-4, Duolingo Max follows, and a wave of wrapper study apps appears." },
-      { year: "2025", text: "The guardrail era begins. Companies ship dedicated study modes, and research published in PNAS shows why safeguards matter." },
+      "The idea of a machine that teaches is almost a hundred years old. The story falls into three eras. In the first, machines delivered fixed content in a fixed order. In the second, systems began to model the student and adapt to what each learner knew. In the third, the systems learned to hold a real conversation. Each era solved the problem the previous one could not, and each handed a new problem to the next.",
+    eras: [
+      {
+        id: "fixed",
+        name: "Fixed content",
+        span: "1920s to 1960s",
+        summary:
+          "The first teaching machines could present material, check an answer, and move on. Every student saw the same content in the same order. The machine could not tell one learner from another, but it established the loop that every later system still uses: present, respond, correct, advance.",
+        events: [
+          {
+            year: "1920s",
+            title: "Pressey's mechanical teaching machine",
+            text: "Sidney Pressey builds a mechanical device that presents a question, accepts an answer, and moves forward. It is the first attempt to put teaching inside a machine.",
+          },
+          {
+            year: "1950s",
+            title: "Skinner and programmed instruction",
+            text: "B.F. Skinner promotes teaching machines and a method called programmed instruction, which breaks a lesson into small steps and gives feedback after each one. This method is the direct ancestor of the practice loop inside modern tutoring apps.",
+          },
+          {
+            year: "1960",
+            title: "PLATO",
+            text: "PLATO, an early computer-based education system, launches at the University of Illinois. Teaching moves from mechanical devices to computers, and lessons can now be stored and delivered electronically.",
+          },
+          {
+            year: "1966",
+            title: "ELIZA",
+            text: "ELIZA, the first chatbot, shows that a program can hold a text conversation. It does not teach anything, but it proves that a machine can talk back, which is the capability every conversational tutor depends on.",
+          },
+        ],
+      },
+      {
+        id: "adaptive",
+        name: "Systems that model the student",
+        span: "1970 to 2012",
+        summary:
+          "The second era added memory. Instead of showing every student the same path, these systems kept a record of what each learner had answered and used it to decide what to show next. Researchers call this record a student model, and it is still the core of adaptive learning today.",
+        events: [
+          {
+            year: "1970",
+            title: "SCHOLAR",
+            text: "Jaime Carbonell builds SCHOLAR, usually called the first intelligent tutoring system. It is the first program that tries to reason about what the student knows rather than simply play back a fixed lesson.",
+          },
+          {
+            year: "1982",
+            title: "The field gets its name",
+            text: "Sleeman and Brown name the field intelligent tutoring systems. A scattered set of experiments becomes a recognised area of research with a shared goal.",
+          },
+          {
+            year: "1998",
+            title: "Cognitive Tutor in classrooms",
+            text: "Carnegie Learning brings Cognitive Tutor into real classrooms. For the first time, an intelligent tutoring system moves from the laboratory to everyday school use.",
+          },
+          {
+            year: "Same era",
+            title: "ALEKS",
+            text: "ALEKS uses assessment to decide which topics a student is ready for. The original system is not generative: it follows rules to pick from explanations and problems that people wrote in advance.",
+          },
+          {
+            year: "2012",
+            title: "Duolingo",
+            text: "Duolingo launches and brings machine learning to a mass-market learning app. Adaptive instruction, once limited to schools and research projects, reaches millions of ordinary users on their phones.",
+          },
+        ],
+      },
+      {
+        id: "conversational",
+        name: "Systems that converse",
+        span: "2016 to today",
+        summary:
+          "The third era combined the student model with fluent language. Built on transformer-based large language models, these tutors can write a new explanation or a new problem on the spot and answer a question the designer never anticipated. That power is also the source of the ethical concern this site examines.",
+        events: [
+          {
+            year: "2016",
+            title: "Jill Watson",
+            text: "Georgia Tech's AI teaching assistant, Jill Watson, answers student questions in an online course without students realising it is not human. It is the first sign that an AI can pass as a teaching assistant.",
+          },
+          {
+            year: "Nov 2022",
+            title: "ChatGPT",
+            text: "ChatGPT is released. Students begin using a general chatbot as a tutor, even though it was never designed for teaching and will hand over a direct answer on request.",
+          },
+          {
+            year: "2023",
+            title: "Purpose-built tutors arrive",
+            text: "Khanmigo launches in March on GPT-4, Duolingo Max follows, and a wave of wrapper study apps appears. For the first time, companies build products around the idea of an AI tutor rather than a general assistant.",
+          },
+          {
+            year: "2025",
+            title: "The guardrail era",
+            text: "Companies ship dedicated study modes that guide instead of answer, and a study published in PNAS shows why: tutors without safeguards can harm learning. Design, not the underlying model, becomes the deciding factor.",
+          },
+        ],
+      },
     ],
+    arcHeading: "The arc in one line",
+    arc: ["Teaching machines", "PLATO", "SCHOLAR", "Cognitive Tutor and ALEKS", "Duolingo", "Khanmigo and ChatGPT-style tutors"],
     predecessorsHeading: "What it was built from",
+    predecessorsIntro:
+      "No single invention produced the AI tutor. Four older technologies each contributed one capability, and a modern tutor is what you get when all four are combined.",
     predecessors: [
-      { name: "Teaching machines and programmed instruction", role: "the teaching method" },
-      { name: "ELIZA", role: "conversation" },
-      { name: "Expert systems such as MYCIN, adapted into the GUIDON tutor", role: "stored knowledge" },
-      { name: "Transformer-based large language models, from 2017", role: "open-ended fluency" },
+      {
+        name: "Teaching machines and programmed instruction",
+        role: "The teaching method",
+        text: "Small steps, an answer from the student, and immediate feedback. This is the pattern inside every practice session an AI tutor runs.",
+      },
+      {
+        name: "ELIZA",
+        role: "Conversation",
+        text: "The first chatbot showed that a program could carry on a text exchange with a person. Without that, a tutor could only quiz, not discuss.",
+      },
+      {
+        name: "Expert systems such as MYCIN, adapted into the GUIDON tutor",
+        role: "Stored knowledge",
+        text: "Expert systems captured a specialist's knowledge as rules. GUIDON adapted MYCIN's medical knowledge into a tutor, proving that stored expertise could be used to teach.",
+      },
+      {
+        name: "Transformer-based large language models, from 2017",
+        role: "Open-ended fluency",
+        text: "Transformers gave machines the ability to write fluent, original text about almost anything. This is what lets a modern tutor explain a topic in a new way instead of replaying a script.",
+      },
     ],
   },
 
