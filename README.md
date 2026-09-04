@@ -1,16 +1,46 @@
-# React + Vite
+# AI tutors and instructors
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An informational site about AI tutors as a computing innovation. It covers what
+these tools are, where they came from, what they are doing to students, teachers,
+school budgets, language communities, and the environment, and what should be
+done about the central ethical problem they create.
 
-Currently, two official plugins are available:
+The site's argument: the same AI model can help or harm a student depending on
+whether it is built to withhold answers. The useful question is not whether
+schools allow AI tutors, but how those tutors behave when a student is stuck.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Running it
 
-## React Compiler
+```bash
+npm install
+npm run dev
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Then open the address Vite prints, normally http://localhost:5173.
 
-## Expanding the ESLint configuration
+To produce the production build:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm run build
+npm run preview
+```
+
+## How the project is organised
+
+| Path | What is in it |
+|---|---|
+| `src/content.js` | Every piece of text and data on the site, with a source link on each row |
+| `src/pages/` | The three pages: Home, Impacts, Recommendation |
+| `src/components/` | Navigation and the shared pieces the pages reuse |
+| `src/styles.css` | The design tokens and all styles |
+| `PRD_AI_Tutors_Website.md` | The research document every fact on the site comes from |
+| `CREDITS.md` | Every piece of code here that I did not write from scratch |
+| `CLAUDE.md` | The rules an AI assistant must follow when editing this repository |
+
+## About the numbers
+
+Every statistic on this site was checked against the original paper, government
+report, or company disclosure, and each one links to that source. Several were
+corrected during fact-checking, so they are not rounded or restated anywhere in
+the code. Three of the strongest sources are working papers rather than
+peer-reviewed articles, which the site states on the page rather than hiding.

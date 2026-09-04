@@ -1,26 +1,42 @@
-import Header from "./components/Header";
-import Card from "./components/Card";
-import "./App.css"
+import { useState } from "react";
+import Sidebar from "./components/Sidebar";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import Impacts from "./pages/Impacts";
+import Recommendation from "./pages/Recommendation";
+import Sources from "./pages/Sources";
+import "./styles.css";
 
+// App is the only place that knows which page is open.
+// openPage holds one of four strings: "home", "impacts", "recommendation",
+// or "sources". Sidebar changes it. This function decides what to show.
 function App() {
-  return (
-    <div>
-      <Header />
-      <Card
-          title="Education"
-          description="AI tutors can provide personalized instruction."
-      />
-      <Card
-          title="Healthcare"
-          description="AI can help doctors diagnose diseases."
-      />
-      <Card
-          title="Employment"
-          description="AI may automate some jobs while creating others."
-      />
-       <Footer />
-    </div>
+  const [openPage, setOpenPage] = useState("home");
 
+  // Pick the page component that matches openPage.
+  let currentPage = <Home />;
+
+  if (openPage === "impacts") {
+    currentPage = <Impacts />;
+  }
+
+  if (openPage === "recommendation") {
+    currentPage = <Recommendation />;
+  }
+
+  if (openPage === "sources") {
+    currentPage = <Sources />;
+  }
+
+  return (
+    <div className="layout">
+      <Sidebar currentPage={openPage} onPageChange={setOpenPage} />
+
+      <div className="content">
+        {currentPage}
+        <Footer />
+      </div>
+    </div>
   );
 }
 

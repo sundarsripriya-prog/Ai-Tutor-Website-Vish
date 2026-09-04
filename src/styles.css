@@ -1,0 +1,459 @@
+/* All styles for the site are in this one file.
+   The colors at the top are the only colors used anywhere else. */
+
+:root {
+  /* The Claude palette. Orange is the one accent colour. */
+  --orange: #D97757;        /* active menu item, links, things that matter */
+  --orange-dark: #C2603F;   /* the same orange, darker, for hover and text */
+  --orange-pale: #F5E4DC;   /* orange washed out, for the active menu row */
+
+  --paper: #FAF9F5;         /* page background, a warm off-white */
+  --surface: #F0EEE6;       /* sidebar and table headers, slightly deeper */
+  --rule: #E3DFD4;          /* hairlines and table borders */
+
+  --ink: #191917;           /* headings and body text, an off-black */
+  --muted: #6E6B63;         /* captions, source links, inactive menu items */
+
+  /* These two are for data only, never for decoration. Green means the
+     finding held up. Red means it is a harm. */
+  --measured: #2F5D50;
+  --deficit: #A03E28;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+h1 {
+  font-size: 42px;
+  margin: 0 0 24px 0;
+}
+
+h2 {
+  font-size: 27px;
+  margin: 64px 0 16px 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+}
+
+/* The first heading on a page does not need a line above it. */
+h2:first-of-type {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 48px;
+}
+
+h3 {
+  font-size: 19px;
+  margin: 32px 0 8px 0;
+}
+
+/* When the menu jumps to a heading, leave a gap above it rather than
+   putting it flush against the top of the screen. */
+h1, h2 {
+  scroll-margin-top: 32px;
+}
+
+p {
+  margin: 0 0 18px 0;
+}
+
+a {
+  color: var(--orange-dark);
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--ink);
+}
+
+/* Anything reached with the Tab key gets a visible outline. */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 3px;
+}
+
+/* ----- the two column shell -----
+   The sidebar stays put while the page next to it scrolls. */
+
+.layout {
+  display: flex;
+  align-items: flex-start;
+}
+
+.sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: var(--surface);
+  border-right: 1px solid var(--rule);
+  padding: 32px 20px;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ----- the sidebar menu ----- */
+
+.sidebar-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 6px 0;
+}
+
+.sidebar-subtitle {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.45;
+  margin: 0 0 32px 0;
+}
+
+.sidebar-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-item {
+  margin-bottom: 4px;
+}
+
+.sidebar-button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 8px 10px;
+  font-family: inherit;
+  font-size: 16px;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.sidebar-button:hover {
+  color: var(--ink);
+}
+
+.sidebar-button-active {
+  background-color: var(--orange-pale);
+  color: var(--orange-dark);
+  font-weight: 600;
+}
+
+/* The sections inside whichever page is open. */
+.sidebar-sections {
+  list-style: none;
+  margin: 2px 0 14px 0;
+  padding: 0 0 0 10px;
+}
+
+.sidebar-section-link {
+  display: block;
+  padding: 5px 0;
+  font-size: 14px;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.sidebar-section-link:hover {
+  color: var(--orange-dark);
+  text-decoration: underline;
+}
+
+/* ----- the page itself ----- */
+
+.page {
+  padding: 56px 48px 96px 48px;
+}
+
+/* Long lines are hard to read, so prose is capped narrow.
+   Tables are allowed to be wider than the prose. */
+.text-column {
+  max-width: 660px;
+}
+
+.wide-block {
+  max-width: 1000px;
+}
+
+.page-intro {
+  font-size: 19px;
+  color: var(--muted);
+  max-width: 660px;
+}
+
+/* ----- the two number comparison on the home page ----- */
+
+.stat-pair {
+  display: flex;
+  gap: 48px;
+  margin: 36px 0 0 0;
+  padding: 32px;
+  background-color: var(--surface);
+  border: 1px solid var(--rule);
+}
+
+.stat-half {
+  flex: 1;
+}
+
+.stat-figure {
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 48px;
+  line-height: 1.05;
+  margin-bottom: 10px;
+}
+
+.stat-figure-measured { color: var(--measured); }
+.stat-figure-deficit { color: var(--deficit); }
+
+.stat-label {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.caption {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 12px 0 40px 0;
+}
+
+/* ----- tables ----- */
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 24px 0 8px 0;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+thead {
+  background-color: var(--surface);
+}
+
+th {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 15px;
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 2px solid var(--ink);
+}
+
+td {
+  padding: 16px;
+  border-bottom: 1px solid var(--rule);
+  text-align: left;
+  vertical-align: top;
+}
+
+/* This column gets a set width so its heading does not wrap onto three lines. */
+.valence-column {
+  width: 120px;
+}
+
+/* The word Positive or Negative is always printed out, so the meaning never
+   depends on the colour alone. */
+.valence-positive { color: var(--measured); font-weight: 700; }
+.valence-negative { color: var(--deficit); font-weight: 700; }
+
+/* ----- source links ----- */
+
+.source-links {
+  font-size: 14px;
+}
+
+.source-links a {
+  color: var(--muted);
+}
+
+.source-links a:hover {
+  color: var(--orange-dark);
+}
+
+/* ----- lists ----- */
+
+.plain-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.plain-list li {
+  margin-bottom: 20px;
+}
+
+.numbered-list {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.numbered-list li {
+  margin-bottom: 18px;
+  padding-left: 6px;
+}
+
+/* The rank numbers are the point of that list, so they are orange. */
+.numbered-list li::marker {
+  color: var(--orange);
+  font-weight: 700;
+}
+
+/* A sentence set apart from the rest because it carries the argument. */
+.lead-statement {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 23px;
+  line-height: 1.4;
+  margin: 24px 0 32px 0;
+}
+
+/* ----- the sources page ----- */
+
+.tier-block {
+  margin-bottom: 44px;
+}
+
+.source-entry {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 15px;
+  margin: 0;
+}
+
+.source-number {
+  color: var(--orange);
+  font-weight: 700;
+}
+
+.source-note {
+  color: var(--muted);
+}
+
+/* ----- footer ----- */
+
+.footer {
+  border-top: 1px solid var(--rule);
+  padding: 28px 48px 48px 48px;
+  font-size: 14px;
+  color: var(--muted);
+  max-width: 1000px;
+}
+
+/* ----- narrow screens -----
+   The sidebar stops being a column and becomes a bar across the top.
+   Each table row becomes a stacked block, and CSS prints the column name
+   in front of each cell using the data-label attribute. */
+
+@media (max-width: 860px) {
+  .layout {
+    display: block;
+  }
+
+  .sidebar {
+    position: static;
+    width: auto;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--rule);
+    padding: 20px 24px;
+  }
+
+  .sidebar-subtitle {
+    margin-bottom: 16px;
+  }
+
+  .sidebar-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  /* On a phone the section links would make the top bar far too tall. */
+  .sidebar-sections {
+    display: none;
+  }
+
+  .page {
+    padding: 32px 24px 64px 24px;
+  }
+
+  .footer {
+    padding: 24px;
+  }
+
+  h1 { font-size: 31px; }
+  h2 { font-size: 23px; margin-top: 48px; }
+
+  .stat-pair {
+    display: block;
+    padding: 24px;
+  }
+
+  .stat-half {
+    margin-bottom: 28px;
+  }
+
+  .stat-half:last-child {
+    margin-bottom: 0;
+  }
+
+  .stat-figure { font-size: 38px; }
+
+  .lead-statement { font-size: 20px; }
+
+  table, thead, tbody, tr, th, td {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    border-bottom: 2px solid var(--ink);
+    padding: 14px 0;
+  }
+
+  td {
+    border: none;
+    padding: 5px 0;
+  }
+
+  td::before {
+    content: attr(data-label) ": ";
+    font-weight: 700;
+  }
+
+  .valence-column {
+    width: auto;
+  }
+}
