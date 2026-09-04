@@ -1,24 +1,30 @@
-/* All styles for the site are in this one file.
-   The colors at the top are the only colors used anywhere else. */
+/* One stylesheet for the whole site. Design tokens come first, then
+   base styles, then one block per component. No animations anywhere. */
 
 :root {
-  /* The Claude palette. Orange is the one accent colour. */
-  --orange: #D97757;        /* active menu item, links, things that matter */
-  --orange-dark: #C2603F;   /* the same orange, darker, for hover and text */
-  --orange-pale: #F5E4DC;   /* orange washed out, for the active menu row */
+  --sage: #eef2e3;
+  --paper: #fcfcfc;
+  --forest: #043f2e;
+  --forest-mid: #2a6f2b;
+  --chartreuse: #c8f169;
+  --ink: #000000;
+  --slate: #5f5c6e;
+  --rust: #8a4b2d;
 
-  --paper: #FAF9F5;         /* page background, a warm off-white */
-  --surface: #F0EEE6;       /* sidebar and table headers, slightly deeper */
-  --rule: #E3DFD4;          /* hairlines and table borders */
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Inter", system-ui, sans-serif;
 
-  --ink: #191917;           /* headings and body text, an off-black */
-  --muted: #6E6B63;         /* captions, source links, inactive menu items */
+  --radius-btn: 4px;
+  --radius-card: 16px;
+  --radius-pill: 9999px;
 
-  /* These two are for data only, never for decoration. Green means the
-     finding held up. Red means it is a harm. */
-  --measured: #2F5D50;
-  --deficit: #A03E28;
+  --max-page: 1120px;
+  --max-text: 65ch;
+  --gap-section: 72px;
+  --pad-card: 28px;
 }
+
+/* ------------------------------------------------------------ Base */
 
 * {
   box-sizing: border-box;
@@ -26,434 +32,579 @@
 
 body {
   margin: 0;
-  background-color: var(--paper);
-  color: var(--ink);
-  font-family: system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+  background: var(--sage);
+  color: var(--forest);
+  font-family: var(--font-body);
   font-size: 17px;
-  line-height: 1.65;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.01em;
-  color: var(--ink);
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.1;
 }
 
 h1 {
-  font-size: 42px;
-  margin: 0 0 24px 0;
+  font-size: 64px;
+  letter-spacing: -0.03em;
 }
 
 h2 {
-  font-size: 27px;
-  margin: 64px 0 16px 0;
-  padding-top: 24px;
-  border-top: 1px solid var(--rule);
-}
-
-/* The first heading on a page does not need a line above it. */
-h2:first-of-type {
-  border-top: none;
-  padding-top: 0;
-  margin-top: 48px;
+  font-size: 40px;
+  letter-spacing: -0.02em;
 }
 
 h3 {
-  font-size: 19px;
-  margin: 32px 0 8px 0;
-}
-
-/* When the menu jumps to a heading, leave a gap above it rather than
-   putting it flush against the top of the screen. */
-h1, h2 {
-  scroll-margin-top: 32px;
+  font-size: 22px;
+  letter-spacing: -0.01em;
 }
 
 p {
-  margin: 0 0 18px 0;
+  margin: 0;
+  max-width: var(--max-text);
 }
 
-a {
-  color: var(--orange-dark);
-  text-underline-offset: 3px;
+p + p {
+  margin-top: 16px;
 }
 
-a:hover {
-  color: var(--ink);
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-/* Anything reached with the Tab key gets a visible outline. */
-a:focus-visible,
-button:focus-visible {
-  outline: 2px solid var(--orange);
+img {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: var(--chartreuse);
+  color: var(--forest);
+}
+
+:focus-visible {
+  outline: 2px solid var(--forest);
   outline-offset: 3px;
 }
 
-/* ----- the two column shell -----
-   The sidebar stays put while the page next to it scrolls. */
-
-.layout {
-  display: flex;
-  align-items: flex-start;
+.band-forest :focus-visible {
+  outline-color: var(--chartreuse);
 }
 
-.sidebar {
-  width: 260px;
-  flex-shrink: 0;
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  overflow-y: auto;
-  background-color: var(--surface);
-  border-right: 1px solid var(--rule);
-  padding: 32px 20px;
+/* ---------------------------------------------------------- Layout */
+
+.container {
+  max-width: var(--max-page);
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
-.content {
-  flex: 1;
-  min-width: 0;
+.section {
+  padding: var(--gap-section) 0;
 }
 
-/* ----- the sidebar menu ----- */
-
-.sidebar-title {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 19px;
-  font-weight: 700;
-  line-height: 1.25;
-  margin: 0 0 6px 0;
+.band-paper {
+  background: var(--paper);
 }
 
-.sidebar-subtitle {
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.45;
-  margin: 0 0 32px 0;
+.band-forest {
+  background: var(--forest);
+  color: var(--paper);
 }
 
-.sidebar-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.sidebar-item {
-  margin-bottom: 4px;
-}
-
-.sidebar-button {
+/* Section opener: a small label above the heading, then an intro. */
+.eyebrow {
   display: block;
-  width: 100%;
-  text-align: left;
-  background: none;
-  border: none;
-  padding: 8px 10px;
-  font-family: inherit;
-  font-size: 16px;
-  color: var(--muted);
-  cursor: pointer;
+  margin-bottom: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
-.sidebar-button:hover {
-  color: var(--ink);
-}
-
-.sidebar-button-active {
-  background-color: var(--orange-pale);
-  color: var(--orange-dark);
-  font-weight: 600;
-}
-
-/* The sections inside whichever page is open. */
-.sidebar-sections {
-  list-style: none;
-  margin: 2px 0 14px 0;
-  padding: 0 0 0 10px;
-}
-
-.sidebar-section-link {
-  display: block;
-  padding: 5px 0;
-  font-size: 14px;
-  color: var(--muted);
-  text-decoration: none;
-}
-
-.sidebar-section-link:hover {
-  color: var(--orange-dark);
-  text-decoration: underline;
-}
-
-/* ----- the page itself ----- */
-
-.page {
-  padding: 56px 48px 96px 48px;
-}
-
-/* Long lines are hard to read, so prose is capped narrow.
-   Tables are allowed to be wider than the prose. */
-.text-column {
-  max-width: 660px;
-}
-
-.wide-block {
-  max-width: 1000px;
-}
-
-.page-intro {
-  font-size: 19px;
-  color: var(--muted);
-  max-width: 660px;
-}
-
-/* ----- the two number comparison on the home page ----- */
-
-.stat-pair {
-  display: flex;
-  gap: 48px;
-  margin: 36px 0 0 0;
-  padding: 32px;
-  background-color: var(--surface);
-  border: 1px solid var(--rule);
-}
-
-.stat-half {
-  flex: 1;
-}
-
-.stat-figure {
-  display: block;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 48px;
-  line-height: 1.05;
-  margin-bottom: 10px;
-}
-
-.stat-figure-measured { color: var(--measured); }
-.stat-figure-deficit { color: var(--deficit); }
-
-.stat-label {
-  color: var(--muted);
-  font-size: 15px;
-  line-height: 1.5;
-}
-
-.caption {
-  color: var(--muted);
-  font-size: 14px;
-  margin: 12px 0 40px 0;
-}
-
-/* ----- tables ----- */
-
-table {
-  border-collapse: collapse;
-  width: 100%;
-  margin: 24px 0 8px 0;
-  font-size: 15px;
-  line-height: 1.55;
-}
-
-thead {
-  background-color: var(--surface);
-}
-
-th {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 15px;
-  text-align: left;
-  padding: 12px 16px;
-  border-bottom: 2px solid var(--ink);
-}
-
-td {
-  padding: 16px;
-  border-bottom: 1px solid var(--rule);
-  text-align: left;
-  vertical-align: top;
-}
-
-/* This column gets a set width so its heading does not wrap onto three lines. */
-.valence-column {
-  width: 120px;
-}
-
-/* The word Positive or Negative is always printed out, so the meaning never
-   depends on the colour alone. */
-.valence-positive { color: var(--measured); font-weight: 700; }
-.valence-negative { color: var(--deficit); font-weight: 700; }
-
-/* ----- source links ----- */
-
-.source-links {
-  font-size: 14px;
-}
-
-.source-links a {
-  color: var(--muted);
-}
-
-.source-links a:hover {
-  color: var(--orange-dark);
-}
-
-/* ----- lists ----- */
-
-.plain-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.plain-list li {
+.section-heading {
   margin-bottom: 20px;
 }
 
-.numbered-list {
-  margin: 0;
-  padding-left: 22px;
+.intro {
+  font-size: 18px;
+  margin-bottom: 32px;
 }
 
-.numbered-list li {
-  margin-bottom: 18px;
-  padding-left: 6px;
+/* ------------------------------------------------------------- Nav */
+
+.nav {
+  background: var(--paper);
 }
 
-/* The rank numbers are the point of that list, so they are orange. */
-.numbered-list li::marker {
-  color: var(--orange);
-  font-weight: 700;
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  height: 72px;
 }
 
-/* A sentence set apart from the rest because it carries the argument. */
-.lead-statement {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 23px;
-  line-height: 1.4;
-  margin: 24px 0 32px 0;
+.wordmark {
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: -0.01em;
 }
 
-/* ----- the sources page ----- */
-
-.tier-block {
-  margin-bottom: 44px;
+.nav-links {
+  display: flex;
+  gap: 4px;
 }
 
-.source-entry {
-  padding: 14px 0;
-  border-bottom: 1px solid var(--rule);
+.nav-link {
+  border: 0;
+  background: none;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  font: inherit;
   font-size: 15px;
-  margin: 0;
+  font-weight: 500;
+  color: var(--forest);
+  cursor: pointer;
 }
 
-.source-number {
-  color: var(--orange);
-  font-weight: 700;
+.nav-link:hover {
+  color: var(--forest-mid);
 }
 
-.source-note {
-  color: var(--muted);
+.nav-link.is-active {
+  background: var(--chartreuse);
+  color: var(--forest);
 }
 
-/* ----- footer ----- */
+/* ------------------------------------------------------------ Hero */
+
+.hero {
+  padding: 80px 0 56px;
+  text-align: center;
+}
+
+.hero h1 {
+  max-width: 14ch;
+  margin: 0 auto;
+}
+
+.hero .lede {
+  max-width: 60ch;
+  margin: 24px auto 0;
+  font-size: 18px;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.hero-image {
+  width: 100%;
+  aspect-ratio: 21 / 9;
+  object-fit: cover;
+  border-radius: var(--radius-card);
+  margin-top: 56px;
+  background: var(--forest);
+}
+
+/* --------------------------------------------------------- Buttons */
+
+.button {
+  display: inline-block;
+  border: 1px solid var(--forest);
+  border-radius: var(--radius-btn);
+  padding: 12px 20px;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--forest);
+  background: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  color: var(--forest-mid);
+  border-color: var(--forest-mid);
+}
+
+.button-filled {
+  background: var(--chartreuse);
+  border-color: var(--chartreuse);
+}
+
+.button-filled:hover {
+  background: var(--forest);
+  border-color: var(--forest);
+  color: var(--paper);
+}
+
+/* ------------------------------------------------------------ Cards */
+
+.card {
+  background: var(--paper);
+  border-radius: var(--radius-card);
+  padding: var(--pad-card);
+}
+
+.card-sage {
+  background: var(--sage);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.card h3 {
+  margin-bottom: 12px;
+}
+
+/* A definition list: name on the left, explanation on the right. */
+.definitions {
+  display: grid;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.definition {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--ink);
+}
+
+.definition-name {
+  font-weight: 500;
+}
+
+.definition-example {
+  display: block;
+  margin-top: 4px;
+  font-size: 14px;
+  color: var(--slate);
+}
+
+/* --------------------------------------------------------- Timeline */
+
+.timeline {
+  border-left: 1px solid var(--forest);
+  padding-left: 32px;
+  display: grid;
+  gap: 24px;
+}
+
+.timeline-year {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+
+.predecessors {
+  margin-top: 56px;
+}
+
+.predecessors h3 {
+  margin-bottom: 20px;
+}
+
+.predecessor {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 16px 0;
+  border-top: 1px solid var(--ink);
+}
+
+.predecessor span:last-child {
+  color: var(--slate);
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* ------------------------------------------------- Gains and costs */
+
+.impact-block + .impact-block {
+  margin-top: var(--gap-section);
+}
+
+.pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.pair h3 {
+  margin-bottom: 16px;
+}
+
+.pair-costs h3 {
+  color: var(--rust);
+}
+
+.pair li + li {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--sage);
+}
+
+/* ---------------------------------------------------------- Callout */
+
+.callout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.callout p {
+  font-family: var(--font-display);
+  font-size: 26px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  max-width: 28ch;
+}
+
+/* ------------------------------------------------- Forest stat band */
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.stat {
+  border-radius: var(--radius-card);
+  padding: var(--pad-card);
+  border: 1px solid rgba(252, 252, 252, 0.2);
+}
+
+.stat-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--chartreuse);
+  margin-bottom: 12px;
+}
+
+.stat-value {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 48px;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.stat p {
+  font-size: 15px;
+  color: rgba(252, 252, 252, 0.85);
+}
+
+.stat-after {
+  margin-top: 40px;
+}
+
+/* -------------------------------------------------------- Objection */
+
+.quote {
+  font-family: var(--font-display);
+  font-size: 26px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  max-width: 34ch;
+  margin-bottom: 40px;
+}
+
+.responses li {
+  padding: 20px 0;
+  border-top: 1px solid var(--ink);
+}
+
+/* ------------------------------------------------------------ Steps */
+
+.steps {
+  counter-reset: step;
+  display: grid;
+  gap: 16px;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 16px;
+}
+
+.step::before {
+  counter-increment: step;
+  content: counter(step);
+  font-family: var(--font-display);
+  font-size: 40px;
+  line-height: 1;
+}
+
+.step h3 {
+  margin-bottom: 8px;
+}
+
+/* ------------------------------------------------------- References */
+
+.tier + .tier {
+  margin-top: 56px;
+}
+
+.tier-head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.tag {
+  display: inline-block;
+  background: var(--chartreuse);
+  color: var(--forest);
+  border-radius: var(--radius-pill);
+  padding: 4px 12px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.tier-note {
+  color: var(--slate);
+  font-size: 15px;
+  margin-bottom: 24px;
+}
+
+.source-list {
+  display: grid;
+  gap: 12px;
+}
+
+.source-list .card h3 {
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.source-list .card p {
+  font-size: 15px;
+}
+
+/* ----------------------------------------------------------- Footer */
 
 .footer {
-  border-top: 1px solid var(--rule);
-  padding: 28px 48px 48px 48px;
+  background: var(--paper);
+  padding: 32px 0;
   font-size: 14px;
-  color: var(--muted);
-  max-width: 1000px;
+  color: var(--slate);
 }
 
-/* ----- narrow screens -----
-   The sidebar stops being a column and becomes a bar across the top.
-   Each table row becomes a stacked block, and CSS prints the column name
-   in front of each cell using the data-label attribute. */
+.footer .container {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
 
-@media (max-width: 860px) {
-  .layout {
-    display: block;
+.footer button {
+  border: 0;
+  background: none;
+  padding: 0;
+  font: inherit;
+  color: var(--forest);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.footer button:hover {
+  color: var(--forest-mid);
+}
+
+/* ---------------------------------------------------------- Mobile */
+
+@media (max-width: 760px) {
+  body {
+    font-size: 16px;
   }
 
-  .sidebar {
-    position: static;
-    width: auto;
+  h1 {
+    font-size: 42px;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+
+  .section {
+    padding: 56px 0;
+  }
+
+  .hero {
+    padding: 56px 0 40px;
+  }
+
+  .hero-image {
+    aspect-ratio: 4 / 3;
+    margin-top: 40px;
+  }
+
+  .nav-inner {
     height: auto;
-    border-right: none;
-    border-bottom: 1px solid var(--rule);
-    padding: 20px 24px;
+    padding: 16px 0;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .sidebar-subtitle {
-    margin-bottom: 16px;
-  }
-
-  .sidebar-list {
-    display: flex;
+  .nav-links {
     flex-wrap: wrap;
-    gap: 6px;
   }
 
-  /* On a phone the section links would make the top bar far too tall. */
-  .sidebar-sections {
-    display: none;
+  .card-grid,
+  .pair,
+  .stat-grid {
+    grid-template-columns: 1fr;
   }
 
-  .page {
-    padding: 32px 24px 64px 24px;
+  .definition {
+    grid-template-columns: 1fr;
+    gap: 8px;
   }
 
-  .footer {
-    padding: 24px;
+  .predecessor {
+    flex-direction: column;
+    gap: 4px;
   }
 
-  h1 { font-size: 31px; }
-  h2 { font-size: 23px; margin-top: 48px; }
-
-  .stat-pair {
-    display: block;
-    padding: 24px;
+  .predecessor span:last-child {
+    text-align: left;
   }
 
-  .stat-half {
-    margin-bottom: 28px;
+  .callout {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .stat-half:last-child {
-    margin-bottom: 0;
-  }
-
-  .stat-figure { font-size: 38px; }
-
-  .lead-statement { font-size: 20px; }
-
-  table, thead, tbody, tr, th, td {
-    display: block;
-  }
-
-  thead {
-    display: none;
-  }
-
-  tr {
-    border-bottom: 2px solid var(--ink);
-    padding: 14px 0;
-  }
-
-  td {
-    border: none;
-    padding: 5px 0;
-  }
-
-  td::before {
-    content: attr(data-label) ": ";
-    font-weight: 700;
-  }
-
-  .valence-column {
-    width: auto;
+  .hero-actions {
+    flex-wrap: wrap;
   }
 }

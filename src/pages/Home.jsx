@@ -1,107 +1,109 @@
-import StatPair from "../components/StatPair";
-import SourceLinks from "../components/SourceLinks";
-import {
-  heroHeading,
-  heroThesis,
-  heroComparison,
-  whatItIsHeading,
-  whatItIsDefinition,
-  classificationIntro,
-  classificationCategories,
-  classificationDistinction,
-  timelineHeading,
-  timelineFraming,
-  timelineEntries,
-  applicationsHeading,
-  applications,
-} from "../content";
+import { home } from "../content.js";
+import Hero from "../components/Hero.jsx";
 
-// The home page. It has four parts, in this order:
-//   1. the opening claim and the two numbers that support it
-//   2. what an AI tutor actually is
-//   3. where AI tutors came from
-//   4. which ones are being used now
-function Home() {
+// Home: what an AI tutor is, how it is classified, its history, and how
+// people use it today.
+function Home({ onNavigate }) {
   return (
-    <main className="page">
-      {/* 1. The opening claim */}
-      <h1>{heroHeading}</h1>
-      <div className="text-column">
-        <p>{heroThesis}</p>
-      </div>
+    <main>
+      <Hero hero={home.hero}>
+        <button className="button button-filled" onClick={() => onNavigate("impacts")}>
+          See the impacts
+        </button>
+        <button className="button" onClick={() => onNavigate("references")}>
+          View references
+        </button>
+      </Hero>
 
-      <StatPair
-        left={heroComparison.left}
-        right={heroComparison.right}
-        caption={heroComparison.caption}
-        captionUrl={heroComparison.captionUrl}
-      />
-
-      {/* 2. What an AI tutor is */}
-      <h2 id="what-it-is">{whatItIsHeading}</h2>
-      <div className="text-column">
-        <p>{whatItIsDefinition}</p>
-        <p>{classificationIntro}</p>
-
-        <ul className="plain-list">
-          {classificationCategories.map(function (category) {
-            return (
-              <li key={category.id}>
-                <strong>{category.term}.</strong>
-                <span> {category.description}</span>
-              </li>
-            );
+      {/* What counts as an AI tutor */}
+      <section className="section">
+        <div className="container">
+          <span className="eyebrow">Definition</span>
+          <h2 className="section-heading">{home.whatItIs.heading}</h2>
+          {home.whatItIs.paragraphs.map(function (text) {
+            return <p key={text}>{text}</p>;
           })}
-        </ul>
 
-        <h3>{classificationDistinction.label}</h3>
-        <p>{classificationDistinction.text}</p>
-      </div>
-
-      {/* 3. Where AI tutors came from */}
-      <h2 id="history">{timelineHeading}</h2>
-      <div className="text-column">
-        <p>{timelineFraming}</p>
-      </div>
-
-      <div className="wide-block">
-        <table>
-          <thead>
-            <tr>
-              <th>Era</th>
-              <th>Development</th>
-              <th>Why it matters</th>
-            </tr>
-          </thead>
-          <tbody>
-            {timelineEntries.map(function (entry) {
+          <div className="definitions">
+            {home.whatItIs.forms.map(function (form) {
               return (
-                <tr key={entry.id}>
-                  <td data-label="Era">{entry.era}</td>
-                  <td data-label="Development">{entry.development}</td>
-                  <td data-label="Why it matters">{entry.whyItMatters}</td>
-                </tr>
+                <div className="definition" key={form.name}>
+                  <div>
+                    <span className="definition-name">{form.name}</span>
+                    <span className="definition-example">{form.example}</span>
+                  </div>
+                  <p>{form.text}</p>
+                </div>
               );
             })}
-          </tbody>
-        </table>
-      </div>
+          </div>
+        </div>
+      </section>
 
-      {/* 4. Which AI tutors are in use now */}
-      <h2 id="applications">{applicationsHeading}</h2>
-      <div className="text-column">
-        {applications.map(function (application) {
-          return (
-            <div key={application.id}>
-              <h3>{application.name}</h3>
-              <p>
-                <span>{application.description} </span>
-                <SourceLinks sources={application.sources} />
-              </p>
-            </div>
-          );
-        })}
-      </div>
+      {/* Classification */}
+      <section className="section band-paper">
+        <div className="container">
+          <span className="eyebrow">Classification</span>
+          <h2 className="section-heading">{home.classification.heading}</h2>
+          <p className="intro">{home.classification.intro}</p>
+
+          <div className="card-grid">
+            {home.classification.items.map(function (item) {
+              return (
+                <div className="card card-sage" key={item.term}>
+                  <h3>{item.term}</h3>
+                  <p>{item.text}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* History */}
+      <section className="section">
+        <div className="container">
+          <span className="eyebrow">History</span>
+          <h2 className="section-heading">{home.history.heading}</h2>
+          <p className="intro">{home.history.intro}</p>
+
+          <ol className="timeline">
+            {home.history.timeline.map(function (event) {
+              return (
+                <li key={event.year + event.text}>
+                  <span className="timeline-year">{event.year}</span>
+                  <p>{event.text}</p>
+                </li>
+              );
+            })}
+          </ol>
+
+          <div className="predecessors">
+            <h3>{home.history.predecessorsHeading}</h3>
+            <ul>
+              {home.history.predecessors.map(function (item) {
+                return (
+                  <li className="predecessor" key={item.name}>
+                    <span>{item.name}</span>
+                    <span>{item.role}</span>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Applications today */}
+      <section className="section band-paper">
+        <div className="container">
+          <span className="eyebrow">Applications</span>
+          <h2 className="section-heading">{home.today.heading}</h2>
+          {home.today.paragraphs.map(function (text) {
+            return <p key={text}>{text}</p>;
+          })}
+        </div>
+      </section>
     </main>
   );
 }

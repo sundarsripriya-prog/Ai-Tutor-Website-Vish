@@ -1,12 +1,13 @@
-// A short line at the bottom of every page. The full source list used to live
-// here, but it was long enough to deserve its own page, so it moved there.
-function Footer() {
+import { footer } from "../content.js";
+
+// One line about the project and a link to the References page.
+function Footer({ onNavigate }) {
   return (
     <footer className="footer">
-      <p>
-        Every statistic on this site links to the paper, government report, or
-        company disclosure it came from. The full list is on the Sources page.
-      </p>
+      <div className="container">
+        <p>{footer.text}</p>
+        <button onClick={() => onNavigate("references")}>View references</button>
+      </div>
     </footer>
   );
 }

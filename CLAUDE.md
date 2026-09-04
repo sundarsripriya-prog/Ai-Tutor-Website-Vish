@@ -28,7 +28,7 @@ If a section feels thin, leave it thin. A shorter honest page is the right outco
 ## Writing rules for site copy
 
 - No em dashes anywhere.
-- Sentence case headings. No all-caps labels. No eyebrow labels above headings.
+- Sentence case headings. The only all-caps text is the 12px eyebrow label above a section heading, one per section, as set in design-system.md.
 - Explain a statistic in the same sentence that introduces it.
 - Attribute findings in prose: "Researchers at Wharton found..." not a bare citation.
 - State the limitation whenever a finding has one.
@@ -59,6 +59,7 @@ If you adapt something, mark it and say what changed.
 ## Structure
 
 - Content lives in `src/content.js`. Components stay presentational.
-- Page components: `Home`, `Impacts`, `Recommendation`.
+- Page components: `Home`, `Impacts`, `Recommendation`, `References`.
+- Visual rules live in `design-system.md`. Content comes only from `research.md`.
 - Navigation is `useState` in `App`, not a router.
 - Every statistic renders with a working source link.
